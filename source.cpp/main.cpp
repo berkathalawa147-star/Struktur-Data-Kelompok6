@@ -148,7 +148,7 @@ void radixSortMSD(vector<string>& arr, bool verbose) {
 }
 
 // ============================================================================
-// MODUL SEARCHING - TERNARY SEARCH (ANGGOTA 2)
+// MODUL SEARCHING - TERNARY SEARCH 
 // ============================================================================
 int ternarySearch(const vector<string>& arr, const string& target) {
     int left = 0;
@@ -185,7 +185,7 @@ int ternarySearch(const vector<string>& arr, const string& target) {
 }
 
 // ============================================================================
-// MODUL DATA, BENCHMARK & FILE HANDLING (ANGGOTA 3)
+// MODUL DATA, BENCHMARK & FILE HANDLING 
 // ============================================================================
 vector<string> datasetUtama;
 
