@@ -11,7 +11,7 @@ using namespace std;
 using namespace chrono;
 
 // ============================================================================
-// VARIABLE GLOBAL UNTUK ANALISIS PERFORMA
+// VARIABLE GLOBAL UNTUK ANALISIS PERFORMA 
 // ============================================================================
 long long operasi = 0; // Untuk mencatat operasi sorting & searching
 
@@ -185,7 +185,7 @@ int ternarySearch(const vector<string>& arr, const string& target) {
 }
 
 // ============================================================================
-// MODUL DATA, BENCHMARK & FILE HANDLING (ANGGOTA 3)
+// MODUL DATA, BENCHMARK & FILE HANDLING 
 // ============================================================================
 vector<string> datasetUtama;
 
@@ -238,7 +238,7 @@ void bacaFileString() {
     }
     file.close();
     cout << datasetUtama.size() << " data berhasil dibaca dari file.\n";
-} // <--- KURUNG PENUTUP INI SEBELUMNYA HILANG, SEKARANG SUDAH DIPERBAIKI
+} 
 
 void bubbleSortString(vector<string> arr) {
     operasi = 0;
