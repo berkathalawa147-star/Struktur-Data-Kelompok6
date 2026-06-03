@@ -1,4 +1,4 @@
-#include <iostream>
+MMM#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <chrono>
@@ -130,3 +130,98 @@ int main()
     return 0;
 }
 
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+void msdRadixSort(vector<string>& arr, int left, int right, int digit)
+{
+    if (left >= right)
+        return;
+
+    int maxLength = arr[0].length();
+
+    if (digit >= maxLength)
+        return;
+
+    vector<vector<string>> bucket(10);
+
+    for (int i = left; i <= right; i++)
+    {
+        int currentDigit = arr[i][digit] - '0';
+        bucket[currentDigit].push_back(arr[i]);
+    }
+
+    int index = left;
+    vector<pair<int,int>> ranges;
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (!bucket[i].empty())
+        {
+            int start = index;
+
+            for (string nim : bucket[i])
+            {
+                arr[index++] = nim;
+            }
+
+            int end = index - 1;
+
+            ranges.push_back({start,end});
+        }
+    }
+
+    cout << "\nDigit ke-" << digit + 1 << endl;
+
+    for (string nim : arr)
+    {
+        cout << nim << " ";
+    }
+    cout << endl;
+
+    for (auto r : ranges)
+    {
+        msdRadixSort(arr,
+                     r.first,
+                     r.second,
+                     digit + 1);
+    }
+}
+
+void radixSortMSD(vector<string>& arr)
+{
+    msdRadixSort(arr,0,arr.size()-1,0);
+}
+
+int main()
+{
+    vector<string> nim =
+    {
+        "231401015",
+        "231401003",
+        "231401020",
+        "231401001",
+        "231401010",
+        "231401007",
+        "231401002"
+    };
+
+    cout << "Data Awal:\n";
+
+    for(string x : nim)
+        cout << x << " ";
+
+    cout << "\n";
+
+    radixSortMSD(nim);
+
+    cout << "\n\nHasil Sorting MSD:\n";
+
+    for(string x : nim)
+        cout << x << " ";
+
+    cout << endl;
+}
